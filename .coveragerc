@@ -1,0 +1,21 @@
+[run]
+source = app
+branch = True
+concurrency = thread,greenlet
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise NotImplementedError
+    if TYPE_CHECKING:
+    @abstractmethod
+    \.\.\.
+    pass
+
+omit =
+    */tests/*
+    */alembic/*
+    */scripts/*
+    */data/*
+    */frontend/*

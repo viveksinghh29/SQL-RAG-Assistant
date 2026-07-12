@@ -1,0 +1,34 @@
+[
+  {
+    "question": "Show total revenue for June 2026",
+    "sql": "SELECT SUM(total_amount) AS revenue FROM orders WHERE status = 'completed' AND order_date BETWEEN '2026-06-01' AND '2026-06-30';"
+  },
+  {
+    "question": "What are the top 5 products by revenue?",
+    "sql": "SELECT p.name, SUM(oi.quantity * oi.unit_price) AS revenue FROM order_items oi JOIN products p ON oi.product_id = p.id JOIN orders o ON oi.order_id = o.id WHERE o.status = 'completed' GROUP BY p.id, p.name ORDER BY revenue DESC LIMIT 5;"
+  },
+  {
+    "question": "How many customers do we have per region?",
+    "sql": "SELECT region, COUNT(*) AS customer_count FROM customers GROUP BY region ORDER BY customer_count DESC;"
+  },
+  {
+    "question": "What is the average order value this year?",
+    "sql": "SELECT AVG(total_amount) AS average_order_value FROM orders WHERE status = 'completed' AND YEAR(order_date) = YEAR(CURDATE());"
+  },
+  {
+    "question": "Show monthly revenue trend for the last 12 months",
+    "sql": "SELECT DATE_FORMAT(order_date, '%Y-%m') AS month, SUM(total_amount) AS revenue FROM orders WHERE status = 'completed' AND order_date >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH) GROUP BY month ORDER BY month;"
+  },
+  {
+    "question": "Which suppliers provide the most products?",
+    "sql": "SELECT s.name, COUNT(p.id) AS product_count FROM suppliers s JOIN products p ON p.supplier_id = s.id GROUP BY s.id, s.name ORDER BY product_count DESC;"
+  },
+  {
+    "question": "List enterprise customers who haven't ordered in the last 90 days",
+    "sql": "SELECT c.id, c.name FROM customers c WHERE c.segment = 'enterprise' AND c.id NOT IN (SELECT customer_id FROM orders WHERE order_date >= DATE_SUB(CURDATE(), INTERVAL 90 DAY));"
+  },
+  {
+    "question": "Compare June sales to May sales",
+    "sql": "SELECT DATE_FORMAT(order_date, '%Y-%m') AS month, SUM(total_amount) AS revenue FROM orders WHERE status = 'completed' AND order_date BETWEEN '2026-05-01' AND '2026-06-30' GROUP BY month ORDER BY month;"
+  }
+]
