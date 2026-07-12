@@ -35,6 +35,8 @@ Built with **FastAPI**, **MySQL**, **LangChain**, **FAISS**, **Groq Llama 3**, a
 
 
 ## Screenshot
+1[image alt](https://github.com/viveksinghh29/SQL-RAG-Assistant/blob/main/image.png?raw=true)
+1[image alt]()
 
 ## 📁 Project Structure
 
