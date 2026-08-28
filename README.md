@@ -6,7 +6,7 @@ Built with **FastAPI**, **MySQL**, **LangChain**, **FAISS**, **Groq Llama 3**, a
 
 ---
 
-## ✨ Features
+## Features
 
 * 💬 Natural Language to SQL
 * 🔍 Retrieval-Augmented Generation (RAG)
@@ -38,7 +38,7 @@ Built with **FastAPI**, **MySQL**, **LangChain**, **FAISS**, **Groq Llama 3**, a
 ![image alt](https://github.com/viveksinghh29/SQL-RAG-Assistant/blob/main/image.png?raw=true)
 ![image alt](https://github.com/viveksinghh29/SQL-RAG-Assistant/blob/main/image-1.png?raw=tru)
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 sql-rag-assistant/
